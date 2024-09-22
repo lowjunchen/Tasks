@@ -43,6 +43,11 @@ public class Main {
         }
     }
 
+    /*** Print all data with streams in a new method ****/
+    public static void printAllData_streams(ArrayList<Task> tasksData) {
+        tasksData.stream().forEach(System.out::println);
+    }
+
     public static void printDeadlines(ArrayList<Task> tasksData) {
         for (Task t : tasksData) {
             if (t instanceof Deadline) {
