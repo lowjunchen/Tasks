@@ -32,6 +32,11 @@ public class Main {
         return count;
     }
 
+    public static int countDeadlines_streams(ArrayList<Task> tasksData) {
+        int count = (int) tasksData.stream().filter((t) -> t instanceof Deadline).count();
+        return count;
+    }
+
     public static void printAllData(ArrayList<Task> tasksData) {
         for (Task t : tasksData) {
             System.out.println(t);
