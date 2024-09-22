@@ -34,10 +34,20 @@ public class Main {
         return count;
     }
 
+    public static int countDeadlines_streams(ArrayList<Task> tasksData) {
+        int count = (int) tasksData.stream().filter((t) -> t instanceof Deadline).count();
+        return count;
+    }
+
     public static void printAllData(ArrayList<Task> tasksData) {
         for (Task t : tasksData) {
             System.out.println(t);
         }
+    }
+
+    /*** Print all data with streams in a new method ****/
+    public static void printAllData_streams(ArrayList<Task> tasksData) {
+        tasksData.stream().forEach(System.out::println);
     }
 
     public static void printDeadlines(ArrayList<Task> tasksData) {
@@ -57,6 +67,12 @@ public class Main {
     public static ArrayList<Task> filterTasksByString(ArrayList<Task> tasks, String filterString){
         ArrayList<Task> filteredList = (ArrayList<Task>) tasks.stream().filter(t -> t.getDescription().contains(filterString)).collect(toList());
         return filteredList;
+    }
+
+}
+    /*** Print Deadline data with streams in a new method ****/
+    public static void printDeadlines_streams(ArrayList<Task> tasksData) {
+        tasksData.stream().filter(t -> t instanceof Deadline).forEach(System.out::println);
     }
 
 }
